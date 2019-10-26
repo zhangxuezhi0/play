@@ -1,0 +1,33 @@
+
+# 环境配置
+spring:
+  profiles:
+    active: dev   #开发环境
+#    active: prod  #生产环境
+#    active: test  #测试环境
+
+  # 设置编码
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# 用户永久token
+user:
+  permanent:
+    authorization: play
+
+
+# 服务器端口，api路径
+server:
+  port: 8080
+  servlet:
+    context-path: /play/api/
+
+# api版本号
+play:
+  api:
+    version:
+      latest: v0.0.1
+
