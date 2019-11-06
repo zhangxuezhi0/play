@@ -21,6 +21,7 @@ public class CommOutVO<T> {
 
     public CommOutVO(T data) {
         this.data = data;
+        this.code = StatusCode.SUCCESS;
     }
 
     //构造方法私有化，单例模式

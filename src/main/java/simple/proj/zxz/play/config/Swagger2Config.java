@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import simple.proj.zxz.play.comm.GeneralConsts;
-import simple.proj.zxz.play.utils.PropUtil;
+import simple.proj.zxz.play.prop.CommProp;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -18,7 +18,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,7 +33,7 @@ import java.util.List;
 public class Swagger2Config {
 
     @Autowired
-    private PropUtil propUtil;
+    private CommProp commProp;
 
     /**
      * 请求头字段
@@ -68,7 +67,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title(GeneralConsts.PROJECT_API_TITLE)
                 .description(GeneralConsts.PROJECT_DESC)
-                .version(propUtil.getPlayApiVersionLatest())
+                .version(commProp.getPlayApiVersionLatest())
                 .build();
     }
 
@@ -92,7 +91,7 @@ public class Swagger2Config {
      **/
     private List<SecurityContext> securityContexts() {
         List<SecurityContext> result = new ArrayList<>();
-        result.add(getContextByPath("/" + propUtil.getPlayApiVersionLatest() + "/.*"));
+        result.add(getContextByPath("/" + commProp.getPlayApiVersionLatest() + "/.*"));
         return result;
     }
 

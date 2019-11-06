@@ -1,4 +1,8 @@
 
+# 应用名称
+application:
+  name: PLAY
+
 # 环境配置
 spring:
   profiles:
@@ -30,4 +34,8 @@ play:
   api:
     version:
       latest: v0.0.1
+
+# 时区设置
+time:
+  zone: Asia/Shanghai
 

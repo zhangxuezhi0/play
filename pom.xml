@@ -22,36 +22,51 @@
 
     <dependencies>
 
+        <!-- 自定义工具类的jar包导入 -->
+        <dependency>
+            <groupId>first.zxz</groupId>
+            <artifactId>tools</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- spring boot开发相关工具 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-
             <!-- 假如你的Project A的某个依赖D添加了<optional>true</optional>，当别人通过pom依赖Project A的时候，D不会被传递依赖进来 -->
             <optional>true</optional>
         </dependency>
+        <!-- spring boot开发相关工具 -->
 
+        <!-- lombok pojo辅助工具 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!-- lombok pojo辅助工具 -->
 
+        <!-- spring boot web 组件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- spring boot web 组件 -->
 
+        <!-- fastjson 数据json格式化工具 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+        <!-- fastjson 数据json格式化工具 -->
 
+        <!-- swagger api自动检测和显示 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -62,6 +77,8 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger2.version}</version>
         </dependency>
+        <!-- swagger api自动检测和显示 -->
+
 
 
         <dependency>
@@ -75,7 +92,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
 
 
     </dependencies>

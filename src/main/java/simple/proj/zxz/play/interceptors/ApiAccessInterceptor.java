@@ -1,7 +1,6 @@
 package simple.proj.zxz.play.interceptors;
 
 
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,8 +9,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import simple.proj.zxz.play.comm.GeneralConsts;
 import simple.proj.zxz.play.pojo.vo.comm.CommOutVO;
+import simple.proj.zxz.play.prop.CommProp;
 import simple.proj.zxz.play.utils.JsonUtil;
-import simple.proj.zxz.play.utils.PropUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,11 +29,15 @@ import javax.servlet.http.HttpServletResponse;
 public class ApiAccessInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
-    private PropUtil propUtil;
+    private CommProp commProp;
 
-    /**http响应类型字段*/
+    /**
+     * http响应类型字段
+     */
     private static final String RESPONSE_CONTENT_TYPE = "Content-Type";
-    /**http响应类型：json*/
+    /**
+     * http响应类型：json
+     */
     private static final String RESPONSE_HEADER_JSON = "application/json";
 
     /**
@@ -77,7 +80,7 @@ public class ApiAccessInterceptor extends HandlerInterceptorAdapter {
      * @date 2019/10/25 17:48
      **/
     private boolean auth(String token) {
-        return token.equals(propUtil.getUserPermanentAuthorization());
+        return token.equals(commProp.getUserPermanentAuthorization());
     }
 
 
