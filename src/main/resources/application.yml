@@ -6,7 +6,7 @@ application:
 # 环境配置
 spring:
   profiles:
-    active: dev   #开发环境
+    active: dev   #开发环境: application-dev.yml
 #    active: prod  #生产环境
 #    active: test  #测试环境
 
@@ -30,10 +30,9 @@ server:
     context-path: /play/api/
 
 # api版本号
-play:
-  api:
-    version:
-      latest: v0.0.1
+api:
+  version:
+    latest: v0.0.1
 
 # 时区设置
 time:

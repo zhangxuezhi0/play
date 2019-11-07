@@ -30,8 +30,8 @@ public class CommProp {
     /**
      * api版本号
      */
-    @Value("${play.api.version.latest}")
-    private String playApiVersionLatest;
+    @Value("${api.version.latest}")
+    private String apiVersionLatest;
 
     /**
      * 时区设置

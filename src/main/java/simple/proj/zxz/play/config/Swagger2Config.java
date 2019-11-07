@@ -3,7 +3,7 @@ package simple.proj.zxz.play.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import simple.proj.zxz.play.comm.GeneralConsts;
+import simple.proj.zxz.play.comm.GeneralConst;
 import simple.proj.zxz.play.prop.CommProp;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -65,9 +65,9 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title(GeneralConsts.PROJECT_API_TITLE)
-                .description(GeneralConsts.PROJECT_DESC)
-                .version(commProp.getPlayApiVersionLatest())
+                .title(commProp.getApplicationName())
+                .description(GeneralConst.PROJECT_DESC)
+                .version(commProp.getApiVersionLatest())
                 .build();
     }
 
@@ -79,7 +79,7 @@ public class Swagger2Config {
      * @date 2019/10/25 17:13
      **/
     private List<ApiKey> securitySchemes() {
-        return Collections.singletonList(new ApiKey(GeneralConsts.REQ_HEADER_AUTH, GeneralConsts.REQ_HEADER_AUTH, REQ_HEADER));
+        return Collections.singletonList(new ApiKey(GeneralConst.REQ_HEADER_AUTH, GeneralConst.REQ_HEADER_AUTH, REQ_HEADER));
     }
 
     /**
@@ -91,7 +91,7 @@ public class Swagger2Config {
      **/
     private List<SecurityContext> securityContexts() {
         List<SecurityContext> result = new ArrayList<>();
-        result.add(getContextByPath("/" + commProp.getPlayApiVersionLatest() + "/.*"));
+        result.add(getContextByPath("/" + commProp.getApiVersionLatest() + "/.*"));
         return result;
     }
 
@@ -119,7 +119,7 @@ public class Swagger2Config {
      **/
     private List<SecurityReference> defaultAuth() {
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{new AuthorizationScope(AUTHORIZATION_SCOPE, AUTHORIZATIONS_DESC)};
-        return Collections.singletonList(new SecurityReference(GeneralConsts.REQ_HEADER_AUTH, authorizationScopes));
+        return Collections.singletonList(new SecurityReference(GeneralConst.REQ_HEADER_AUTH, authorizationScopes));
     }
 
 }

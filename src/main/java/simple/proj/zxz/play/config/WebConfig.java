@@ -37,7 +37,7 @@ public class WebConfig implements WebMvcConfigurer {
      **/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(apiAccessInterceptor).addPathPatterns("/" + commProp.getPlayApiVersionLatest() + "/**");
+        registry.addInterceptor(apiAccessInterceptor).addPathPatterns("/" + commProp.getApiVersionLatest() + "/**");
 
         //注意，拦截器配置不能使用配置文件的统一api路径配置：server.servlet.context-path，这样配置是无效的。
         //只能使用controller里面的具体路径配置，才能有效拦截

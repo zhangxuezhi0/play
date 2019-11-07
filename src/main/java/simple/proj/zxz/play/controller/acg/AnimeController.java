@@ -1,13 +1,13 @@
 package simple.proj.zxz.play.controller.acg;
 
-import com.alibaba.fastjson.JSON;
 import first.zxz.tools.DateUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import simple.proj.zxz.play.exception.BusinessException;
+import simple.proj.zxz.play.pojo.vo.acg.AnimeAddInVO;
 import simple.proj.zxz.play.pojo.vo.acg.AnimeQueryInVO;
 import simple.proj.zxz.play.pojo.vo.acg.AnimeQueryOutVO;
 import simple.proj.zxz.play.pojo.vo.comm.CommOutVO;
@@ -37,9 +37,6 @@ public class AnimeController {
     @GetMapping
     @ApiOperation("获取列表")
     public CommOutVO<AnimeQueryOutVO> getAnimeList(AnimeQueryInVO animeQueryInVO) {
-        //TODO 这里应该研究下，如何使用aop去把所有接口的入参记载到日志里面
-
-        log.info(JSON.toJSONString(animeQueryInVO, true));
 
         AnimeQueryOutVO animeQueryOutVO = new AnimeQueryOutVO();
         animeQueryOutVO.setDirector("宫崎骏");
@@ -49,5 +46,18 @@ public class AnimeController {
 
     }
 
+    @PostMapping
+    @ApiOperation("新增")
+    public CommOutVO addAnime(@RequestBody @Validated AnimeAddInVO animeAddInVO) {
+
+        //TODO 业务逻辑待增加
+
+        //测试
+        if (true) {
+            throw new BusinessException();
+        }
+        return CommOutVO.getSuccess();
+
+    }
 
 }

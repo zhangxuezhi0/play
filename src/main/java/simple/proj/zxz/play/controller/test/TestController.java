@@ -31,7 +31,6 @@ public class TestController {
     @GetMapping
     @ApiOperation("获取列表")
     public CommOutVO getAnimeList(AnimeQueryInVO animeQueryInVO) {
-        log.info(JSON.toJSONString(animeQueryInVO, true));
         return CommOutVO.getSuccess();
     }
 

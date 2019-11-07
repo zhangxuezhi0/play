@@ -79,6 +79,17 @@
         </dependency>
         <!-- swagger api自动检测和显示 -->
 
+        <!-- spring aop 面向切面编程-->
+        <!--<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            &lt;!&ndash;<version>${spring.version}</version>&ndash;&gt;
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
 
         <dependency>

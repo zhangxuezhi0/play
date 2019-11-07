@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import simple.proj.zxz.play.comm.GeneralConsts;
+import simple.proj.zxz.play.comm.GeneralConst;
 import simple.proj.zxz.play.pojo.vo.comm.CommOutVO;
 import simple.proj.zxz.play.prop.CommProp;
 import simple.proj.zxz.play.utils.JsonUtil;
@@ -58,11 +58,11 @@ public class ApiAccessInterceptor extends HandlerInterceptorAdapter {
         }
 
         //token验证
-        String token = request.getHeader(GeneralConsts.REQ_HEADER_AUTH);
+        String token = request.getHeader(GeneralConst.REQ_HEADER_AUTH);
         if (StringUtils.isEmpty(token)) {
             //没有token信息，未登录
             response.setHeader(RESPONSE_CONTENT_TYPE, RESPONSE_HEADER_JSON);
-            response.getWriter().write(JsonUtil.toFormattedJsonString(CommOutVO.getNotAuthInstance()));
+            response.getWriter().write(JsonUtil.toFormattedJsonString(CommOutVO.getNotAuth()));
             return false;
         } else if (!auth(token)) {
             return false;

@@ -26,6 +26,6 @@ public class StatusCode {
     /**
      * 未授权
      */
-    public static final int NOT_AUTH = 701;
+    public static final int NOT_AUTH = 700;
 
 }

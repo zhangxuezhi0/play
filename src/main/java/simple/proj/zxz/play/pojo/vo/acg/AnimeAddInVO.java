@@ -4,20 +4,22 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 /**
- * anime查询出参vo
+ * anime新增入参vo
  *
  * @author zhangxz
  * 2019/10/25
  */
 
 @Data
-@ApiModel("动漫查询出参")
-public class AnimeQueryOutVO {
+@ApiModel("动漫新增入参")
+public class AnimeAddInVO {
 
-    @ApiModelProperty("名称")
+    @ApiModelProperty(value = "名称", required = true)
+    @NotEmpty(message = "名称不能为空")
     private String name;
 
     @ApiModelProperty("导演")

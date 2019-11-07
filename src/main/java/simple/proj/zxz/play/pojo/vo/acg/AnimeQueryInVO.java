@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * acg 入参vo
+ * 动漫查询入参vo
  *
  * @author zhangxz
  * 2019/10/25
