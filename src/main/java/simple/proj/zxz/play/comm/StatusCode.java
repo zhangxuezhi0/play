@@ -14,6 +14,11 @@ public class StatusCode {
     public static final int SUCCESS = 200;
 
     /**
+     * 请求数据格式错误
+     */
+    public static final int REQ_DATA_FORMAT_ERROR = 400;
+
+    /**
      * 系统错误
      */
     public static final int SYSTEM_ERROR = 500;

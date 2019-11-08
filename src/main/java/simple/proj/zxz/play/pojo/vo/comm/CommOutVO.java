@@ -74,14 +74,7 @@ public class CommOutVO<T> {
      * @date 2019/11/7 12:21
      **/
     public static CommOutVO getBusinessException(String msg) {
-        if (StringUtil.isEmptyAndBlank(msg)) {
-            throw new StringEmptyException();
-        }
-
-        CommOutVO outVO = new CommOutVO();
-        outVO.setCode(StatusCode.BUSINESS_EXCEPTION);
-        outVO.setMessage(msg);
-        return outVO;
+        return generateCommOutVO(StatusCode.BUSINESS_EXCEPTION, msg);
     }
 
     /**
@@ -93,6 +86,37 @@ public class CommOutVO<T> {
      **/
     public static CommOutVO getSystemError() {
         return SYS_ERROR_INSTANCE;
+    }
+
+    /**
+     * 返回请求参数格式错误
+     *
+     * @param msg 提示语
+     * @return simple.proj.zxz.play.pojo.vo.comm.CommOutVO
+     * @author Zxz
+     * @date 2019/11/7 18:27
+     **/
+    public static CommOutVO getReqDataFormatError(String msg) {
+        return generateCommOutVO(StatusCode.REQ_DATA_FORMAT_ERROR, msg);
+    }
+
+    /**
+     * 根据状态码和提示语，构造返回数据
+     *
+     * @param code 状态码
+     * @param msg  提示语
+     * @return simple.proj.zxz.play.pojo.vo.comm.CommOutVO
+     * @author Zxz
+     * @date 2019/11/7 18:28
+     **/
+    private static CommOutVO generateCommOutVO(int code, String msg) {
+        if (StringUtil.isEmptyAndBlank(msg)) {
+            throw new StringEmptyException();
+        }
+        CommOutVO outVO = new CommOutVO();
+        outVO.setCode(code);
+        outVO.setMessage(msg);
+        return outVO;
     }
 
 }

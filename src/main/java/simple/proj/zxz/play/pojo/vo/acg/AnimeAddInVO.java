@@ -19,10 +19,11 @@ import java.util.Date;
 public class AnimeAddInVO {
 
     @ApiModelProperty(value = "名称", required = true)
-    @NotEmpty(message = "名称不能为空")
+    @NotEmpty(message = "名称不能为空！")
     private String name;
 
     @ApiModelProperty("导演")
+    @NotEmpty(message = "导演不能为空！")
     private String director;
 
     @ApiModelProperty("上映时间")
