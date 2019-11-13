@@ -3,6 +3,7 @@ package simple.proj.zxz.play.exception;
 import com.alibaba.fastjson.JSONException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -47,6 +48,9 @@ public class GlobalExceptionHandler {
                 } else if (globalException instanceof JSONException) {
                     //fastJson验证报错
                     message = ((JSONException) globalException).getCause().toString();
+                } else {
+                    //其他参数错误类型
+                    message = globalException.getMessage();
                 }
             } catch (Exception e) {
                 log.error(e.getMessage(), e);
@@ -70,7 +74,8 @@ public class GlobalExceptionHandler {
     private boolean isReqDataFormatError(Exception globalException) {
         return globalException instanceof MethodArgumentNotValidException
                 || globalException instanceof HttpMessageNotReadableException
-                || globalException instanceof JSONException;
+                || globalException instanceof JSONException
+                || globalException instanceof BindException;
     }
 
 }

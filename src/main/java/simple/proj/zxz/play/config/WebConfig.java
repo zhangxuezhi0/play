@@ -1,12 +1,6 @@
 package simple.proj.zxz.play.config;
 
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -17,7 +11,7 @@ import simple.proj.zxz.play.prop.CommProp;
  * web配置
  *
  * @author zhangxz
- * 2019/10/25
+ *         2019/10/25
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -45,6 +39,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     }
 
+/*
 
     @Bean
     public FastJsonConfig fastJsonConfig() {
@@ -73,5 +68,6 @@ public class WebConfig implements WebMvcConfigurer {
 
         return new HttpMessageConverters(fastConverter);
     }
+*/
 
 }

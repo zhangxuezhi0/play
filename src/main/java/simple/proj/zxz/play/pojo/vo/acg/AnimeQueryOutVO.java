@@ -5,12 +5,13 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * anime查询出参vo
  *
  * @author zhangxz
- * 2019/10/25
+ *         2019/10/25
  */
 
 @Data
@@ -25,5 +26,8 @@ public class AnimeQueryOutVO {
 
     @ApiModelProperty("上映时间")
     private Date releaseTime;
+
+    @ApiModelProperty("角色列表")
+    private List<String> roleList;
 
 }

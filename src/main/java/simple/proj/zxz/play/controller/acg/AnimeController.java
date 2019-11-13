@@ -41,7 +41,7 @@ public class AnimeController {
         AnimeQueryOutVO animeQueryOutVO = new AnimeQueryOutVO();
         animeQueryOutVO.setDirector("宫崎骏");
         animeQueryOutVO.setName("千与千寻");
-        animeQueryOutVO.setReleaseTime(DateUtil.newDate("2001-07-20"));
+        animeQueryOutVO.setReleaseTime(DateUtil.parse("2001-07-20"));
         return new CommOutVO<>(animeQueryOutVO);
 
     }

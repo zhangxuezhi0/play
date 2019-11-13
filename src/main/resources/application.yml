@@ -17,6 +17,12 @@ spring:
       enabled: true
       force: true
 
+  # jackson配置
+#  jackson:
+#    serialization:
+#      # 输出date为时间戳
+#      write-dates-as-timestamps: true
+
 # 用户永久token
 user:
   permanent:
